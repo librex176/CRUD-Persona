@@ -1,5 +1,5 @@
 <?php
-function conect(){
+function conectar(){
     $host = "localhost";
     $user = "root";
     $password = "";
@@ -7,6 +7,7 @@ function conect(){
     $bd = "persona";
 
     $conection = mysqli_connect($host, $user, $password);
+
     mysqli_select_db($conection, $bd);
 
     return $conection;
