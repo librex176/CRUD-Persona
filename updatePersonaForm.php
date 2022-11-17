@@ -12,9 +12,10 @@
     <!--Seccion del formulario-->
     <div class="principal">
     
-        <form action="addPersona.php" method="POST">
+        <form action="updatePersona.php" method="POST">
             <div class="form_cont">
                 <!--Campos del formulario con sus validaciones-->
+                <input type="text"  value=<?php  $Id = $_GET['Id']; echo $Id;   ?> name="Id" readonly />
                 <input type="text"  name="Nombre" placeholder="Nombre" required maxlength="200">
                 <input type="text"  name="Ape_Pat" placeholder="Apellido Paterno" required maxlength="200">
                 <input type="text"  name="Ape_Mat" placeholder="Apellido Materno" required maxlength="200">
@@ -30,8 +31,7 @@
                 
                 <div class="status">
                         Status: 
-                    <label >Estatus 1: 
-                    <input type="radio"  name="Estatus_Id" value=1 required ></label>
+                    <label >Estatus 1: <input type="radio"  name="Estatus_Id" value=1 required ></label>
                     <label >Estatus 2:
                     <input type="radio"  name="Estatus_Id" value=2 required >
                     </label>
@@ -51,17 +51,14 @@
                     </label>
                 </div>
                 
+                 <!--Boton para actualizar-->
                  
-                 <input type="submit" value="Agregar" >
+                 <input type="submit" value="Actualizar"  >
         </form>
                    
         
     </div>
-         <!--Formulario para buscar-->           
-        <form action="showPersona.php" method="POST">
-            <input type="text" name="Nombre" placeholder="Buscar">
-            <input type="submit" value="Buscar">
-        </form> 
+       
     
     
     

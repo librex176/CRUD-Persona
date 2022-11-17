@@ -5,17 +5,17 @@
     
 }
 .principal{
-    width: 100%;
+    width: 50%;
     justify-content: center;
     text-align: center;
     align-items: center;
 }
-.formulary{
+.form_cont{
     text-align: center;
     justify-content: center;
     margin-left: 25%;
     margin-right: 25%;
-    width: 50%;
+    
     padding: 20px;
     box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -24,6 +24,7 @@
     
     margin: 20px;
     padding: 20px;
+    
     
 }
 

@@ -3,14 +3,21 @@
     //Funcion para hacer la consulta de todos los miembros de la tabla
     include ("conectionToDB.php");
     $conection = conectar();
-    
-    $showPersona = "SELECT * FROM persona";
+    $nombre = $_POST['Nombre'];
+    //Filtro para mostrar un registro en específico 
+    if($nombre != ''){
+    $showPersona = "SELECT * FROM persona WHERE Nombre ='$nombre'";
     
     $queryShowPersona = mysqli_query($conection, $showPersona);
+    //Filtro para mostrar todos los registros
+    }else {
+        $showPersona = "SELECT * FROM persona ";
     
+        $queryShowPersona = mysqli_query($conection, $showPersona);
+    }
     
 ?>
-
+<!--HTML de la vista que mostrara la busqueda-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,8 +55,10 @@
     <?php
     //Funcion para mostrar una busqueda
     
+    //Ciclo para extraer informacion de la consulta
         while($row = mysqli_fetch_array($queryShowPersona)){
     ?>
+    <!--Impresion de cada campo de la tabla-->
     <tr class="table">
         <th><?php echo $row["Id"]?></th>
         <th><?php echo $row['Nombre']?></th>
@@ -64,8 +73,8 @@
         <th><?php echo $row['Persona_Tipo_Id']?></th>
         <th><?php echo $row['Fecha_Modificacion']?></th>
         <th><?php echo $row['Avatar']?></th>
-        <th><a href="updatePersona.php <?php echo $row ['Id']?> " class="btn btn-info">Editar </a></th>
-        <th><a href="updatePersona.php <?php echo $row ['Id']?> " class="btn btn-danger">Eliminar </a></th>
+        <th><a href="updatePersonaForm.php?Id= <?php echo $row ['Id']?>"  class="btn btn-info">Editar </a></th>
+        <th><a href="deletePersona.php?Id= <?php echo $row ['Id']?>"  class="btn btn-danger">Eliminar</a></th>
 
 
     </tr>
